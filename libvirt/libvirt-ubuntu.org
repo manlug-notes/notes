@@ -1,0 +1,37 @@
+
+
+** Install libvirt - ubuntu
+- install libvirt and related tools
+#+BEGIN_SRC sh
+apt-get install qemu-kvm libvirt-bin virtinst virt-manager
+#+END_SRC
+
+- start and enable the libvirtd
+#+BEGIN_SRC sh
+systemctl start libvirtd
+systemctl enable libvirtd
+#+END_SRC
+** Istall libvirt - centos
+- install libvirt and related tools
+#+BEGIN_SRC sh
+yum install qemu-kvm qemu-img libvirt virt-install libvirt-pyton virt-manager libvirt-client
+#+END_SRC
+
+- start and enable the libvirtd
+#+BEGIN_SRC sh
+systemctl start libvirtd
+systemctl enable libvirtd
+#+END_SRC
+** Configure CentOS7 to host VMs with libvirt
+- packages to install
+#+BEGIN_SRC 
+yum install virt-manger qemu-kvm qemu-ing
+yum install libvirt libvirt-python python-virtinst libvirt-client
+#+END_SRC
+
+- enable, startand confirm the status of libvirtd
+#+BEGIN_SRC sh
+systemctl enable libvirtd
+systemctl start libvirtd
+systemctl status libvirtd
+#+END_SRC

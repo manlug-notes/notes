@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2019-05-27 Mon 13:23 -->
+<!-- 2019-05-27 Mon 16:55 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>&lrm;</title>
@@ -228,11 +228,139 @@ for the JavaScript code in this tag.
 </head>
 <body>
 <div id="content">
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#orgc8e04d4">Confirm that virulization is enabled</a></li>
+<li><a href="#orgd8ddab0">Installation</a></li>
+<li><a href="#org626756b">Service Configuration</a></li>
+<li><a href="#org213dd91">Adding user</a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgc8e04d4" class="outline-2">
+<h2 id="orgc8e04d4">Confirm that virulization is enabled</h2>
+<div class="outline-text-2" id="text-orgc8e04d4">
+<ul class="org-ul">
+<li>check that the processor has virtualization</li>
+</ul>
+<div class="org-src-container">
+<pre class="src src-sh">grep -E <span style="color: #2aa889;">'(vmx|svm)'</span> /proc/cpuinfo
+</pre>
+</div>
+
+<ul class="org-ul">
+<li>you should see something similar to below, if nothing is returned check that your cpu is capable of virtualization</li>
+</ul>
+<pre class="example">
+flags           : fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc art arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc cpuid aperfmperf tsc_known_freq pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm 3dnowprefetch cpuid_fault
+epb invpcid_single pti ssbd ibrs ibpb stibp tpr_shadow vnmi flexpriority ept vpid ept_ad fsgsbase tsc_adjust bmi1 hle avx2 smep bmi2 erms invpcid rtm mpx rdseed adx smap clflushopt intel_pt xsaveopt xsavec xgetbv1 xsaves dtherm ida arat pln pts hwp hwp_notify hwp_act_window hwp_epp flush_l1d
+</pre>
+
+<ul class="org-ul">
+<li>check the kvm module is loaded</li>
+</ul>
+<div class="org-src-container">
+<pre class="src src-sh">lsmod | grep kvm
+</pre>
+</div>
+
+<ul class="org-ul">
+<li>you should see output similar to below</li>
+</ul>
+<pre class="example">
+kvm_intel             311296  4
+kvm                   741376  1 kvm_intel
+irqbypass              16384  4 kvm
+</pre>
+
+<ul class="org-ul">
+<li>if not loaded</li>
+</ul>
+<div class="org-src-container">
+<pre class="src src-sh">modprobe kvm
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgd8ddab0" class="outline-2">
+<h2 id="orgd8ddab0">Installation</h2>
+<div class="outline-text-2" id="text-orgd8ddab0">
+<div class="org-src-container">
+<pre class="src src-sh">sudo yum install qemu-kvm qemu-img libvirt virt-install libvirt-pyton virt-manager libvirt-client python-virtinst bridge-utils virt-viewer
+</pre>
+</div>
 <p>
-<a href="file:///libvirt.html">libvirt</a></p>
+qemu-kvm       - QEMU emulator
+</p>
+
+<p>
+qemu-img       - QEMU disk image manager
+</p>
+
+<p>
+virt-install   - Command line tool to create virtual machines.
+</p>
+
+<p>
+libvirt        - Provides libvirtd daemon that manages virtual machines and controls
+                 hypervisor.
+</p>
+
+<p>
+libvirt-client - Provides client-side API for accessing servers and also provides the 
+                 virsh utility which provides command line tool to manage virtual machines.
+</p>
+
+<p>
+virt-viewer    - Graphical Console(optional, if using virt-manager or a VNC client)
+</p>
+
+<p>
+virt-manager   - Graphical Management Interface(optional, but will require VMs to be managed from the cmd line without)
+</p>
+</div>
+</div>
+
+<div id="outline-container-org626756b" class="outline-2">
+<h2 id="org626756b">Service Configuration</h2>
+<div class="outline-text-2" id="text-org626756b">
+<ul class="org-ul">
+<li>start and enable libvirtd</li>
+</ul>
+<div class="org-src-container">
+<pre class="src src-sh">sudo systemctl enable libvirtd &amp;&amp; systemctl start libvirtd
+</pre>
+</div>
+
+<ul class="org-ul">
+<li>confirm startup and that service is enabled</li>
+</ul>
+<div class="org-src-container">
+<pre class="src src-sh">systemctl status libvirtd
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org213dd91" class="outline-2">
+<h2 id="org213dd91">Adding user</h2>
+<div class="outline-text-2" id="text-org213dd91">
+<ul class="org-ul">
+<li>allow a normal user to use libvirt</li>
+</ul>
+<div class="org-src-container">
+<pre class="src src-sh">sudo usermod -aG libvirt user
+</pre>
+</div>
+</div>
+</div>
 </div>
 <div id="postamble" class="status">
-<p class="date">Created: 2019-05-27 Mon 13:23</p>
+<p class="date">Created: 2019-05-27 Mon 16:55</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

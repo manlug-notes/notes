@@ -1,0 +1,89 @@
+#+OPTIONS: num:nil
+
+** Confirm that virulization is enabled
+- check that the processor has virtualization 
+#+BEGIN_SRC sh
+grep -E '(vmx|svm)' /proc/cpuinfo
+#+END_SRC
+
+- you should see something similar to below, if nothing is returned check that your cpu is capable of virtualization
+#+BEGIN_EXAMPLE
+flags           : fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc art arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc cpuid aperfmperf tsc_known_freq pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm 3dnowprefetch cpuid_fault
+epb invpcid_single pti ssbd ibrs ibpb stibp tpr_shadow vnmi flexpriority ept vpid ept_ad fsgsbase tsc_adjust bmi1 hle avx2 smep bmi2 erms invpcid rtm mpx rdseed adx smap clflushopt intel_pt xsaveopt xsavec xgetbv1 xsaves dtherm ida arat pln pts hwp hwp_notify hwp_act_window hwp_epp flush_l1d
+#+END_EXAMPLE
+
+- check the kvm module is loaded
+#+BEGIN_SRC sh
+lsmod | grep kvm
+#+END_SRC
+
+- you should see output similar to below
+#+BEGIN_EXAMPLE
+kvm_intel             311296  4
+kvm                   741376  1 kvm_intel
+irqbypass              16384  4 kvm
+#+END_EXAMPLE
+
+- if not loaded 
+#+BEGIN_SRC sh
+modprobe kvm
+#+END_SRC
+
+** Installation 
+
+#+BEGIN_SRC sh
+sudo yum install qemu-kvm qemu-img libvirt virt-install libvirt-pyton virt-manager libvirt-client python-virtinst bridge-utils virt-viewer
+#+END_SRC
+qemu-kvm       - QEMU emulator
+
+qemu-img       - QEMU disk image manager
+
+virt-install   - Command line tool to create virtual machines.
+
+libvirt        - Provides libvirtd daemon that manages virtual machines and controls
+                 hypervisor.
+
+libvirt-client - Provides client-side API for accessing servers and also provides the 
+                 virsh utility which provides command line tool to manage virtual machines.
+
+virt-viewer    - Graphical Console(optional, if using virt-manager or a VNC client)
+
+virt-manager   - Graphical Management Interface(optional, but will require VMs to be managed from the cmd line without)
+
+** Service Configuration
+- start and enable libvirtd
+#+BEGIN_SRC sh
+sudo systemctl enable libvirtd && systemctl start libvirtd
+#+END_SRC
+
+- confirm startup and that service is enabled
+#+BEGIN_SRC sh
+systemctl status libvirtd
+#+END_SRC
+
+** Adding user
+- allow a normal user to use libvirt
+#+BEGIN_SRC sh
+sudo usermod -aG libvirt user
+#+END_SRC
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
