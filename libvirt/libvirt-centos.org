@@ -1,23 +1,29 @@
-#+OPTIONS: num:nil
+#+OPTIONS: num:nil toc:nil html-postamble:nil
+
+* Libvirt setup for CentOS7
 
 ** Confirm that virulization is enabled
 - check that the processor has virtualization 
-#+BEGIN_SRC sh
+#+ATTR_HTML: :textarea t :width 80
+#+BEGIN_EXAMPLE
 grep -E '(vmx|svm)' /proc/cpuinfo
-#+END_SRC
+#+END_EXAMPLE
 
 - you should see something similar to below, if nothing is returned check that your cpu is capable of virtualization
+#+ATTR_HTML: :textarea t :width 80
 #+BEGIN_EXAMPLE
 flags           : fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc art arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc cpuid aperfmperf tsc_known_freq pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm 3dnowprefetch cpuid_fault
 epb invpcid_single pti ssbd ibrs ibpb stibp tpr_shadow vnmi flexpriority ept vpid ept_ad fsgsbase tsc_adjust bmi1 hle avx2 smep bmi2 erms invpcid rtm mpx rdseed adx smap clflushopt intel_pt xsaveopt xsavec xgetbv1 xsaves dtherm ida arat pln pts hwp hwp_notify hwp_act_window hwp_epp flush_l1d
 #+END_EXAMPLE
 
 - check the kvm module is loaded
-#+BEGIN_SRC sh
+#+ATTR_HTML: :textarea t :width 80
+#+BEGIN_EXAMPLE
 lsmod | grep kvm
-#+END_SRC
+#+END_EXAMPLE
 
 - you should see output similar to below
+#+ATTR_HTML: :textarea t :width 80
 #+BEGIN_EXAMPLE
 kvm_intel             311296  4
 kvm                   741376  1 kvm_intel
@@ -25,15 +31,17 @@ irqbypass              16384  4 kvm
 #+END_EXAMPLE
 
 - if not loaded 
-#+BEGIN_SRC sh
+#+ATTR_HTML: :textarea t :width 80
+#+BEGIN_EXAMPLE
 modprobe kvm
-#+END_SRC
+#+END_EXAMPLE
 
-** Installation 
+** Required Packages
 
-#+BEGIN_SRC sh
+#+ATTR_HTML: :textarea t :width 80
+#+BEGIN_EXAMPLE
 sudo yum install qemu-kvm qemu-img libvirt virt-install libvirt-pyton virt-manager libvirt-client python-virtinst bridge-utils virt-viewer
-#+END_SRC
+#+END_EXAMPLE
 qemu-kvm       - QEMU emulator
 
 qemu-img       - QEMU disk image manager
@@ -48,24 +56,28 @@ libvirt-client - Provides client-side API for accessing servers and also provide
 
 virt-viewer    - Graphical Console(optional, if using virt-manager or a VNC client)
 
-virt-manager   - Graphical Management Interface(optional, but will require VMs to be managed from the cmd line without)
+virt-manager   - Graphical Management Interface(optional, but will require VMs to be managed from the cmd line if not installed)
 
 ** Service Configuration
 - start and enable libvirtd
-#+BEGIN_SRC sh
+#+ATTR_HTML: :textarea t :width 80
+#+BEGIN_EXAMPLE
 sudo systemctl enable libvirtd && systemctl start libvirtd
-#+END_SRC
+#+END_EXAMPLE
 
 - confirm startup and that service is enabled
-#+BEGIN_SRC sh
+#+ATTR_HTML: :textarea t :width 80
+#+BEGIN_EXAMPLE
 systemctl status libvirtd
-#+END_SRC
+#+END_EXAMPLE
 
-** Adding user
-- allow a normal user to use libvirt
-#+BEGIN_SRC sh
+** Allow a regular user to use libvirt
+
+- add group to the libvirt group
+#+ATTR_HTML: :textarea t :width 80
+#+BEGIN_EXAMPLE
 sudo usermod -aG libvirt user
-#+END_SRC
+#+END_EXAMPLE
 
 
 
