@@ -1,6 +1,6 @@
-#+OPTIONS: num:nil
+#+OPTIONS: num:nil toc:nil html-postamble:nil timestamp:nil
 
-[[https://alickmitchell.github.io/guides/libvirt/libvirt-centos.html][Libvirt - CentOS]]
-[[https://alickmitchell.github.io/guides/libvirt/libvirt-ubuntu.html][Libvirt - Ubuntu]]
-[[https://alickmitchell.github.io/guides/libvirt/working_with_virsh.html][Working with virsh]]
-[[https://alickmitchell.github.io/guides/libvirt/libvirt_and_networking.html][Libvirt and Networking]]
+- [[https://alickmitchell.github.io/guides/libvirt/libvirt-centos.html][Libvirt - CentOS Configuration]]
+- [[https://alickmitchell.github.io/guides/libvirt/libvirt-ubuntu.html][Libvirt - Ubuntu Configuration]]
+- [[https://alickmitchell.github.io/guides/libvirt/working_with_virsh.html][Working with virsh]]
+- [[https://alickmitchell.github.io/guides/libvirt/libvirt_and_networking.html][Libvirt and Networking]]

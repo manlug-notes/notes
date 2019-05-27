@@ -1,4 +1,4 @@
-#+OPTIONS: num:nil toc:nil html-postamble:nil
+#+OPTIONS: num:nil toc:nil html-postamble:nil html-style:nil
 
 * Libvirt setup for CentOS7
 
