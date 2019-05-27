@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2019-05-27 Mon 19:03 -->
+<!-- 2019-05-27 Mon 21:52 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>&lrm;</title>
@@ -58,13 +58,13 @@ for the JavaScript code in this tag.
 <body>
 <div id="content">
 
-<div id="outline-container-org4bf8a66" class="outline-2">
-<h2 id="org4bf8a66">Libvirt setup for CentOS7</h2>
-<div class="outline-text-2" id="text-org4bf8a66">
+<div id="outline-container-org1d3927a" class="outline-2">
+<h2 id="org1d3927a">Libvirt setup for CentOS7</h2>
+<div class="outline-text-2" id="text-org1d3927a">
 </div>
-<div id="outline-container-orga9e2774" class="outline-3">
-<h3 id="orga9e2774">Confirm that virulization is enabled</h3>
-<div class="outline-text-3" id="text-orga9e2774">
+<div id="outline-container-orgcba2013" class="outline-3">
+<h3 id="orgcba2013">Confirm that virulization is enabled</h3>
+<div class="outline-text-3" id="text-orgcba2013">
 <ul class="org-ul">
 <li>check that the processor has virtualization</li>
 </ul>
@@ -110,9 +110,9 @@ modprobe kvm</textarea>
 </div>
 </div>
 
-<div id="outline-container-org9afae1b" class="outline-3">
-<h3 id="org9afae1b">Required Packages</h3>
-<div class="outline-text-3" id="text-org9afae1b">
+<div id="outline-container-org8641d57" class="outline-3">
+<h3 id="org8641d57">Required Packages</h3>
+<div class="outline-text-3" id="text-org8641d57">
 <p>
 <textarea cols="80" rows="1">
 sudo yum install qemu-kvm qemu-img libvirt virt-install libvirt-pyton virt-manager libvirt-client python-virtinst bridge-utils virt-viewer</textarea>
@@ -149,9 +149,9 @@ virt-manager   - Graphical Management Interface(optional, but will require VMs t
 </div>
 </div>
 
-<div id="outline-container-org7fd009e" class="outline-3">
-<h3 id="org7fd009e">Service Configuration</h3>
-<div class="outline-text-3" id="text-org7fd009e">
+<div id="outline-container-org5bfcd7b" class="outline-3">
+<h3 id="org5bfcd7b">Service Configuration</h3>
+<div class="outline-text-3" id="text-org5bfcd7b">
 <ul class="org-ul">
 <li>start and enable libvirtd</li>
 </ul>
@@ -170,9 +170,9 @@ systemctl status libvirtd</textarea>
 </div>
 </div>
 
-<div id="outline-container-org7b32493" class="outline-3">
-<h3 id="org7b32493">Allow a regular user to use libvirt</h3>
-<div class="outline-text-3" id="text-org7b32493">
+<div id="outline-container-orgd4957e4" class="outline-3">
+<h3 id="orgd4957e4">Allow a regular user to use libvirt</h3>
+<div class="outline-text-3" id="text-orgd4957e4">
 <ul class="org-ul">
 <li>add group to the libvirt group</li>
 </ul>
