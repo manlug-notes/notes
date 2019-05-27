@@ -79,4 +79,4 @@ systemctl status libvirtd
 sudo usermod -aG libvirt user
 #+END_EXAMPLE
 
-[[https://manlug-notes.github.io/guides/index.html][Home]]
+[[https://manlug-notes.github.io/notes/index.html][Home]]

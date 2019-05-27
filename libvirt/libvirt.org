@@ -1,6 +1,6 @@
 #+OPTIONS: num:nil toc:nil html-postamble:nil timestamp:nil
 
-- [[https://manlug-notes.github.io/guides/libvirt/libvirt-centos.html][Libvirt - CentOS Configuration]]
-- [[https://manlug-notes.github.io/guides/libvirt/libvirt-ubuntu.html][Libvirt - Ubuntu Configuration]]
-- [[https://manlug-notes.github.io/guides/libvirt/working_with_virsh.html][Working with virsh]]
-- [[https://manlug-notes.github.io/guides/libvirt/libvirt_and_networking.html][Libvirt and Networking]]
+- [[https://manlug-notes.github.io/notes/libvirt/libvirt-centos.html][Libvirt - CentOS Configuration]]
+- [[https://manlug-notes.github.io/notes/libvirt/libvirt-ubuntu.html][Libvirt - Ubuntu Configuration]]
+- [[https://manlug-notes.github.io/notes/libvirt/working_with_virsh.html][Working with virsh]]
+- [[https://manlug-notes.github.io/notes/libvirt/libvirt_and_networking.html][Libvirt and Networking]]

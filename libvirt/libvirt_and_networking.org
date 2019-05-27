@@ -1,3 +1,3 @@
 #+OPTIONS: num:nil toc:nil html-postamble:nil
 
-[[https://manlug-notes.github.io/guides/index.html][Home]]
+[[https://manlug-notes.github.io/notes/index.html][Home]]

@@ -41,4 +41,4 @@ sudo usermod -aG libvirt-qemu username
 sudo usermod -aG libvirt-dnsmasq username
 #+END_EXAMPLE
 
-[[https://manlug-notes.github.io/guides/index.html][Home]]
+[[https://manlug-notes.github.io/notes/index.html][Home]]

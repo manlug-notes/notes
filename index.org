@@ -1,5 +1,5 @@
 #+OPTIONS: num:nil toc:nil html-postamble:nil timestamp:nil
 
 * Notes
-[[https://manlug-notes.github.io/guides/libvirt/libvirt.html][Libvirt]]
+[[https://manlug-notes.github.io/notes/libvirt/libvirt.html][Libvirt]]
 
