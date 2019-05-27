@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2019-05-27 Mon 21:52 -->
+<!-- 2019-05-27 Mon 23:22 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>&lrm;</title>
@@ -58,13 +58,14 @@ for the JavaScript code in this tag.
 <body>
 <div id="content">
 
-<div id="outline-container-org2fb8f7e" class="outline-2">
-<h2 id="org2fb8f7e">Libvirt setup for Ubuntu 18.04LTS</h2>
-<div class="outline-text-2" id="text-org2fb8f7e">
+
+<div id="outline-container-org94fee92" class="outline-2">
+<h2 id="org94fee92">Libvirt setup for Ubuntu 18.04LTS</h2>
+<div class="outline-text-2" id="text-org94fee92">
 </div>
-<div id="outline-container-org8e0f843" class="outline-3">
-<h3 id="org8e0f843">Confirm that virulization is enabled</h3>
-<div class="outline-text-3" id="text-org8e0f843">
+<div id="outline-container-orge1611eb" class="outline-3">
+<h3 id="orge1611eb">Confirm that virulization is enabled</h3>
+<div class="outline-text-3" id="text-orge1611eb">
 <p>
 <textarea cols="80" rows="1">
 kvm-ok</textarea>
@@ -75,9 +76,9 @@ kvm-ok checks that kvm module is loaded and that the /dev/kvm is present
 </div>
 </div>
 
-<div id="outline-container-org6606349" class="outline-3">
-<h3 id="org6606349">Required Packages</h3>
-<div class="outline-text-3" id="text-org6606349">
+<div id="outline-container-orgd2163c5" class="outline-3">
+<h3 id="orgd2163c5">Required Packages</h3>
+<div class="outline-text-3" id="text-orgd2163c5">
 <p>
 <textarea cols="80" rows="1">
 sudo apt install qemu-kvm libvirt-clients libvirt-daemon-system bridge-utils virt-manager</textarea>
@@ -85,9 +86,9 @@ sudo apt install qemu-kvm libvirt-clients libvirt-daemon-system bridge-utils vir
 </div>
 </div>
 
-<div id="outline-container-orgd338bd5" class="outline-3">
-<h3 id="orgd338bd5">Service Configuration</h3>
-<div class="outline-text-3" id="text-orgd338bd5">
+<div id="outline-container-org40fe3d3" class="outline-3">
+<h3 id="org40fe3d3">Service Configuration</h3>
+<div class="outline-text-3" id="text-org40fe3d3">
 <ul class="org-ul">
 <li>start and enable the libvirtd</li>
 </ul>
@@ -107,17 +108,21 @@ systemctl status libvirtd</textarea>
 </div>
 </div>
 
-<div id="outline-container-org5a49419" class="outline-3">
-<h3 id="org5a49419">Allow a regular user to use libvirt</h3>
-<div class="outline-text-3" id="text-org5a49419">
+<div id="outline-container-orgafa85db" class="outline-3">
+<h3 id="orgafa85db">Allow a regular user to use libvirt</h3>
+<div class="outline-text-3" id="text-orgafa85db">
 <ul class="org-ul">
-<li>add group to the libvirt group</li>
+<li>add user to the following groups</li>
 </ul>
 <p>
 <textarea cols="80" rows="3">
-sudo usermod -aG libvirt user
-sudo usermod -aG libvirt-qemu user
-sudo usermod -aG libvirt-dnsmasq user</textarea>
+sudo usermod -aG libvirt username
+sudo usermod -aG libvirt-qemu username
+sudo usermod -aG libvirt-dnsmasq username</textarea>
+</p>
+
+<p>
+<a href="https://manlug-notes.github.io/guides/index.html">Home</a>
 </p>
 </div>
 </div>

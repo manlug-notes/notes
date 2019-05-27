@@ -1,5 +1,6 @@
 #+OPTIONS: num:nil toc:nil html-postamble:nil html-style:nil
 
+
 * Libvirt setup for Ubuntu 18.04LTS
    
 
@@ -32,10 +33,12 @@ systemctl status libvirtd
 
 ** Allow a regular user to use libvirt
 
-- add group to the libvirt group
+- add user to the following groups
 #+ATTR_HTML: :textarea t :width 80
 #+BEGIN_EXAMPLE
-sudo usermod -aG libvirt user
-sudo usermod -aG libvirt-qemu user
-sudo usermod -aG libvirt-dnsmasq user
+sudo usermod -aG libvirt username
+sudo usermod -aG libvirt-qemu username
+sudo usermod -aG libvirt-dnsmasq username
 #+END_EXAMPLE
+
+[[https://manlug-notes.github.io/guides/index.html][Home]]
