@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2019-05-28 Tue 23:00 -->
+<!-- 2019-05-28 Tue 23:30 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>&lrm;</title>
@@ -229,11 +229,11 @@ for the JavaScript code in this tag.
 <body>
 <div id="content">
 
-<div id="outline-container-org46389c3" class="outline-2">
-<h2 id="org46389c3">Creating a Virtual Machine with Virt-Manager</h2>
-<div class="outline-text-2" id="text-org46389c3">
+<div id="outline-container-orgd80b300" class="outline-2">
+<h2 id="orgd80b300">Creating a Virtual Machine with Virt-Manager</h2>
+<div class="outline-text-2" id="text-orgd80b300">
 <ul class="org-ul">
-<li>click the image of monitor with the play button on the screen</li>
+<li>Click the image of a monitor with the play button on the screen</li>
 </ul>
 
 
@@ -255,7 +255,7 @@ for the JavaScript code in this tag.
 
 
 <ul class="org-ul">
-<li>we can search for our our OS iso by clicking the Browse button</li>
+<li>The ios image for the OS can be searched for by clicking the Browse button(an actual dvd/cdrom can be used but the iso image is usally more convenient)</li>
 </ul>
 
 
@@ -266,12 +266,8 @@ for the JavaScript code in this tag.
 
 
 <ul class="org-ul">
-<li>If the OS is stored in the default location /var/notes/lib/images they will be displayed</li>
+<li>If the OS's iso is stored in the default location /var/notes/lib/images they will be displayed to the right. If your iso is in another location you can click on the "Browse Local" button this will allow you to search the filesystem.</li>
 </ul>
-<p>
-to the right. If your iso is in another location you can click on the "Browse Local" button this
-will allow you to search the filesystem.
-</p>
 
 
 <div class="figure">
@@ -281,7 +277,7 @@ will allow you to search the filesystem.
 
 
 <ul class="org-ul">
-<li>we can then set the type of OS that is being installed</li>
+<li>The the type of OS that is being installed can be set(this allows libvirt to make more intelligent decisions with setting up the virtual hardware). If the OS isn't availabe set it as generic.</li>
 </ul>
 
 
@@ -292,7 +288,7 @@ will allow you to search the filesystem.
 
 
 <ul class="org-ul">
-<li>we now set the Memory and number of CPUs</li>
+<li>Set the memory and number of CPUs for the Virtual Machine</li>
 </ul>
 
 
@@ -303,7 +299,7 @@ will allow you to search the filesystem.
 
 
 <ul class="org-ul">
-<li>now create the image (this will create an image in <i>var/notes/lib/qemu</i>)</li>
+<li>Create the disk that the Virtual Machine will use(this will be put in <i>var/notes/lib/qemu</i>)</li>
 </ul>
 
 
@@ -312,14 +308,9 @@ will allow you to search the filesystem.
 </p>
 </div>
 
-<p>
-if you require another location you can click the "select or create custom storage", a 
-pop up will like when we selected or iso to select or image.
-</p>
-
 
 <ul class="org-ul">
-<li>now select a name for the VM, and select the type of networking to use.</li>
+<li>Select a name for the VM, and select the type of networking to use.</li>
 </ul>
 
 
@@ -341,11 +332,8 @@ pop up will like when we selected or iso to select or image.
 
 
 <ul class="org-ul">
-<li>if any of the settings that you made initially need to be changed press the "i" (on some distros this</li>
+<li>If any of the settings that you made initially need to be changed or hardware added press the "i" (on some distros this will be a lightbulb) button on the ribbon, and this interface allows you to alter/add hardware. For some changes the VM will need to be restarted.</li>
 </ul>
-<p>
-will be a lightbulb) button on the ribbon, and this interface allows you to alter hardware settings on the VM.
-</p>
 
 
 <div class="figure">

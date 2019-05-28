@@ -2,7 +2,7 @@
 
 * Creating a Virtual Machine with Virt-Manager
 
-- click the image of monitor with the play button on the screen
+- Click the image of a monitor with the play button on the screen
 
 #+ATTR_HTML: :align top
 [[https://manlug-notes.github.io/notes/libvirt/create_a_vm_virt-manager01.png]]
@@ -14,42 +14,37 @@
 [[https://manlug-notes.github.io/notes/libvirt/create_a_vm_virt-manager02.png]]
 
 
-- we can search for our our OS iso by clicking the Browse button
+- The ios image for the OS can be searched for by clicking the Browse button(an actual dvd/cdrom can be used but the iso image is usally more convenient)
 
 #+ATTR_HTML: :align top
 [[https://manlug-notes.github.io/notes/libvirt/create_a_vm_virt-manager03.png]]
 
 
-- If the OS is stored in the default location /var/notes/lib/images they will be displayed 
-to the right. If your iso is in another location you can click on the "Browse Local" button this
-will allow you to search the filesystem.
+- If the OS's iso is stored in the default location /var/notes/lib/images they will be displayed to the right. If your iso is in another location you can click on the "Browse Local" button this will allow you to search the filesystem.
 
 #+ATTR_HTML: :align top
 [[https://manlug-notes.github.io/notes/libvirt/create_a_vm_virt-manager04.png]]
 
 
-- we can then set the type of OS that is being installed
+- The the type of OS that is being installed can be set(this allows libvirt to make more intelligent decisions with setting up the virtual hardware). If the OS isn't availabe set it as generic.
 
 #+ATTR_HTML: :align top
 [[https://manlug-notes.github.io/notes/libvirt/create_a_vm_virt-manager05.png]]
 
 
-- we now set the Memory and number of CPUs
+- Set the memory and number of CPUs for the Virtual Machine
 
 #+ATTR_HTML: :align top
 [[https://manlug-notes.github.io/notes/libvirt/create_a_vm_virt-manager06.png]]
 
 
-- now create the image (this will create an image in /var/notes/lib/qemu/)
+- Create the disk that the Virtual Machine will use(this will be put in /var/notes/lib/qemu/)
 
 #+ATTR_HTML: :align top
 [[https://manlug-notes.github.io/notes/libvirt/create_a_vm_virt-manager07.png]]
 
-if you require another location you can click the "select or create custom storage", a 
-pop up will like when we selected or iso to select or image.
 
-
-- now select a name for the VM, and select the type of networking to use.  
+- Select a name for the VM, and select the type of networking to use.
 
 #+ATTR_HTML: :align top
 [[https://manlug-notes.github.io/notes/libvirt/create_a_vm_virt-manager08.png]]
@@ -61,8 +56,7 @@ pop up will like when we selected or iso to select or image.
 [[https://manlug-notes.github.io/notes/libvirt/create_a_vm_virt-manager09.png]]
 
 
-- if any of the settings that you made initially need to be changed press the "i" (on some distros this 
-will be a lightbulb) button on the ribbon, and this interface allows you to alter hardware settings on the VM.
+- If any of the settings that you made initially need to be changed or hardware added press the "i" (on some distros this will be a lightbulb) button on the ribbon, and this interface allows you to alter/add hardware. For some changes the VM will need to be restarted. 
 
 #+ATTR_HTML: :align top
 [[https://manlug-notes.github.io/notes/libvirt/create_a_vm_virt-manager10.png]]
