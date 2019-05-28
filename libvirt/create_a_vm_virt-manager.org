@@ -3,48 +3,48 @@
 * Creating a Virtual Machine with Virt-Manager
 
 - click the image of monitor with the play button on the screen
-[[file://libvirt/create_a_vm_virt-manager01.png]]
+[[file:/libvirt/create_a_vm_virt-manager01.png]]
 
 
 - Decide the method of installation 
-[[file://libvirt/create_a_vm_virt-manager02.png]]
+[[file:/libvirt/create_a_vm_virt-manager02.png]]
 
 
 - we can search for our our OS iso by clicking the Browse button
-[[file://libvirt/create_a_vm_virt-manager03.png]]
+[[file:/libvirt/create_a_vm_virt-manager03.png]]
 
 
 - If the OS is stored in the default location /var/lib/libvirt/images they will be displayed 
 to the right. If your iso is in another location you can click on the "Browse Local" button this
 will allow you to search the filesystem.
-[[file://libvirt/create_a_vm_virt-manager04.png]]
+[[file:/libvirt/create_a_vm_virt-manager04.png]]
 
 
 - we can then set the type of OS that is being installed
-[[file://libvirt/create_a_vm_virt-manager05.png]]
+[[file:/libvirt/create_a_vm_virt-manager05.png]]
 
 
 - we now set the Memory and number of CPUs
-[[file://libvirt/create_a_vm_virt-manager06.png]]
+[[file:/libvirt/create_a_vm_virt-manager06.png]]
 
 
 - now create the image (this will create an image in /var/lib/libvirt/qemu/)
-[[file://libvirt/create_a_vm_virt-manager07.png]]
+[[file:/libvirt/create_a_vm_virt-manager07.png]]
 if you require another location you can click the "select or create custom storage", a 
 pop up will like when we selected or iso to select or image.
 
 
 - now select a name for the VM, and select the type of networking to use.  
-[[file://libvirt/create_a_vm_virt-manager08.png]]
+[[file:/libvirt/create_a_vm_virt-manager08.png]]
 
 
 - On pressing the finish button a window will appear with the boot process under way.
-[[file://libvirt/create_a_vm_virt-manager09.png]]
+[[file:/libvirt/create_a_vm_virt-manager09.png]]
 
 
 - if any of the settings that you made initially need to be changed press the "i" (on some distros this 
 will be a lightbulb) button on the ribbon, and this interface allows you to alter hardware settings on the VM.
-[[file://libvirt/create_a_vm_virt-manager10.png]]
+[[file:/libvirt/create_a_vm_virt-manager10.png]]
 
 
 [[https://manlug-notes.github.io/notes/index.html][Home]]
