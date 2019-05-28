@@ -2,6 +2,6 @@
 
 - [[https://manlug-notes.github.io/notes/libvirt/libvirt-centos.html][Libvirt - CentOS Configuration]]
 - [[https://manlug-notes.github.io/notes/libvirt/libvirt-ubuntu.html][Libvirt - Ubuntu Configuration]]
-- [[https://manlug-notes.github.io/notes/libvirt/create_a_vm_with_virt-manager.html][Create a Virtual Machine with Virt-Manager]]
+- [[https://manlug-notes.github.io/notes/libvirt/create_a_vm_virt-manager.org][Create a Virtual Machine with Virt-Manager]]
 - [[https://manlug-notes.github.io/notes/libvirt/working_with_virsh.html][Working with virsh]]
 - [[https://manlug-notes.github.io/notes/libvirt/libvirt_and_networking.html][Libvirt and Networking]]
