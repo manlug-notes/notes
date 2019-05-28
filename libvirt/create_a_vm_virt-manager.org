@@ -30,6 +30,7 @@ will allow you to search the filesystem.
 
 - now create the image (this will create an image in /var/lib/libvirt/qemu/)
 [[file:/libvirt/create_a_vm_virt-manager07.png]]
+
 if you require another location you can click the "select or create custom storage", a 
 pop up will like when we selected or iso to select or image.
 
