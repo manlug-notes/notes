@@ -1,56 +1,75 @@
 #+OPTIONS: num:nil toc:nil html-postamble:nil html-style:nil
-
-* Virsh
+#+TITLE: Virsh
   
-
-** Getting an overview of the environment
+#+BEGIN_EXPORT html
+<h4>Getting an overview of the environment</h4>
+#+END_EXPORT
    
-- View all VMs running and shutdown
+#+BEGIN_EXPORT html
+<p>View all VMs running and shutdown</p>
+#+END_EXPORT
 #+ATTR_HTML: :textarea t :width 80
 #+BEGIN_EXAMPLE
 virsh -c qemu:///system list --all
 #+END_EXAMPLE
 
-- View only the running instances
+#+BEGIN_EXPORT html
+<p>View only the running instances</p>
+#+END_EXPORT
 #+ATTR_HTML: :textarea t :width 80
 #+BEGIN_EXAMPLE
 virsh -c qemu:///system list
 #+END_EXAMPLE
 
-- view all the available networks
+#+BEGIN_EXPORT html
+<p>View all the available networks</p>
+#+END_EXPORT
 #+ATTR_HTML: :textarea t :width 80
 #+BEGIN_EXAMPLE
 virsh -c qemu:///system net-list --all
 #+END_EXAMPLE
 
-- view enabled networks
+#+BEGIN_EXPORT html
+<p>View enabled networks</p>
+#+END_EXPORT
 #+ATTR_HTML: :textarea t :width 80
 #+BEGIN_EXAMPLE
 virsh -c qemu:///system net-list --all
 #+END_EXAMPLE
 
-** Starting and Stopping Virtual Machines
+#+BEGIN_EXPORT html
+<br></br>
+<h4>Starting and Stopping Virtual Machines</h4>
+#+END_EXPORT
+#+BEGIN_EXPORT html
+<p>Start an instance</p>
+#+END_EXPORT
 #+ATTR_HTML: :textarea t :width 80
-- start a instance
 #+BEGIN_EXAMPLE
 virsh -c qemu:///system start centos7
 #+END_EXAMPLE
 
-- stop an instance
+#+BEGIN_EXPORT html
+<p>Stop an instance</p>
+#+END_EXPORT
 #+ATTR_HTML: :textarea t :width 80
 #+BEGIN_EXAMPLE
 virsh -c qemu:///system destory centos7
 #+END_EXAMPLE
 
-- suspend/pause an instance
+#+BEGIN_EXPORT html
+<p>Suspend/Pause an instance</p>
+#+END_EXPORT
 #+ATTR_HTML: :textarea t :width 80
 #+BEGIN_EXAMPLE
 virsh -c qemu:///system suspend centos7
 #+END_EXAMPLE
 
-** Adding a cpu to a Virtual Machine
+#+BEGIN_EXPORT html
+<h4>Adding a cpu to a Virtual Machine</h4>
+<p>View the current configuration of an instance</p>
+#+END_EXPORT
 
-- View information
 #+ATTR_HTML: :textarea t :width 80
 #+BEGIN_EXAMPLE
 virsh -c qemu:///system dominfo centos7
@@ -73,34 +92,45 @@ Security model: none
 Security DOI:   0
 #+END_EXAMPLE
 
-- Adding a cpu to a VM(if running the VM will need to be restarted for the change to take effect)
+#+BEGIN_EXPORT html
+<p>Adding a cpu to a VM</p>
+#+END_EXPORT
 #+ATTR_HTML: :textarea t :width 80
 #+BEGIN_EXAMPLE
 virsh -c qemu:///system setvcpus --count 2 --config --domain centos7
 #+END_EXAMPLE
 
-- Confirm the increase
+#+BEGIN_EXPORT html
+<p>Confirm the increase</p>
+#+END_EXPORT
 #+ATTR_HTML: :textarea t :width 80
 #+BEGIN_EXAMPLE
 virsh -c qemu:///system dominfo centos7
 #+END_EXAMPLE
 
 
-** Change the Memory of a Virtual Machine
-
-- Change the memory of a running instance
-#+ATTR_HTML: :textarea t :width 80
+#+BEGIN_EXPORT html
+<br></br>
+<h4>Change the Memory of a Virtual Machine</h4>
+<p>Change the memory of a running instance, it can only set to the max memory limit</p>
+#+END_EXPORT
+#+ATTR_HTML: :textarea t :width 110 :height 2
 #+BEGIN_EXAMPLE
-virsh -c qemu:///system setmem --domain centos7 --size 4G
+virsh -c qemu:///system setmem --domain centos7 --size 4G --live   # will take affect on an active instance
+virsh -c qemu:///system setmem --domain centos7 --size 4G --config # will take affect after next full shutdown
 #+END_EXAMPLE
-- You are only able to set memory up to the max memory limit
 
-- Increase the Max memory limit
+#+BEGIN_EXPORT html
+<p>Increase the Max memory limit</p>
+#+END_EXPORT
 #+ATTR_HTML: :textarea t :width 80
 #+BEGIN_EXAMPLE
 virsh -c qemu:///system setmaxmem --domain centos7 --size 8G --config
 virsh -c qemu:///system setmem --domain centos7 --size 8G --config
 #+END_EXAMPLE
-these commands can be run against an active instance, but will not take effect until a full shutdown has been performed
+#+BEGIN_EXPORT html
+<p>These commands can be run against an active instance, but will not take effect until a full shutdown has been performed</p>
+<br></br>
+#+END_EXPORT
 
 [[https://manlug-notes.github.io/notes/index.html][Home]]

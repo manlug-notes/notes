@@ -1,65 +1,91 @@
-#+OPTIONS: num:nil toc:nil html-postamble:nil
+#+OPTIONS: num:nil toc:nil html-postamble:nil html-style:nil
+#+TITLE: Creating a Virtual Machine with Virt-Manager
 
-* Creating a Virtual Machine with Virt-Manager
+#+BEGIN_EXPORT html
+<p>Click the image of a monitor with the play button on the screen</p>
+#+END_EXPORT
 
-- Click the image of a monitor with the play button on the screen
-
-#+ATTR_HTML: :align top
+#+ATTR_HTML: :style margin: 20px 20px 20px 80px
 [[https://manlug-notes.github.io/notes/libvirt/create_a_vm_virt-manager01.png]]
 
+#+BEGIN_EXPORT html
+<br></b>
+<p>Decide the method of installation</p>
+#+END_EXPORT 
 
-- Decide the method of installation 
-
-#+ATTR_HTML: :align top
+#+ATTR_HTML: :style margin: 20px 20px 20px 80px
 [[https://manlug-notes.github.io/notes/libvirt/create_a_vm_virt-manager02.png]]
 
+#+BEGIN_EXPORT html
+<br></br>
+<p style= LINE-HEIGHT:5px>The ios image for the OS can be searched for by clicking the Browse button(an actual</p>
+<p style= LINE-HEIGHT:10px>dvd/cdrom can be used but the iso image is usally more convenient)</p>
+#+END_EXPORT
 
-- The ios image for the OS can be searched for by clicking the Browse button(an actual dvd/cdrom can be used but the iso image is usally more convenient)
-
-#+ATTR_HTML: :align top
+#+ATTR_HTML: :style margin: 20px 20px 20px 80px
 [[https://manlug-notes.github.io/notes/libvirt/create_a_vm_virt-manager03.png]]
 
+#+BEGIN_EXPORT html
+<br></br>
+<p style= LINE-HEIGHT:10px>If the OS's iso is stored in the default location /var/notes/lib/images they will be displayed to the right.</p>
+<p style= LINE-HEIGHT:5px> If your iso is in another location you can click on the "Browse Local" button this will allow you to search the filesystem.</p>
+#+END_EXPORT
 
-- If the OS's iso is stored in the default location /var/notes/lib/images they will be displayed to the right. If your iso is in another location you can click on the "Browse Local" button this will allow you to search the filesystem.
-
-#+ATTR_HTML: :align top
+#+ATTR_HTML: :style margin: 20px 20px 20px 80px
 [[https://manlug-notes.github.io/notes/libvirt/create_a_vm_virt-manager04.png]]
 
+#+BEGIN_EXPORT html
+<br></br>
+<p style= LINE-HEIGHT:10px>The the type of OS that is being installed can be set(this allows libvirt to optimize the instances configuration).</p>
+<p style= LINE-HEIGHT:5px>If the OS isn't availabe set it as generic.</p>
+#+END_EXPORT
 
-- The the type of OS that is being installed can be set(this allows libvirt to make more intelligent decisions with setting up the virtual hardware). If the OS isn't availabe set it as generic.
-
-#+ATTR_HTML: :align top
+#+ATTR_HTML: :style margin: 20px 20px 20px 80px
 [[https://manlug-notes.github.io/notes/libvirt/create_a_vm_virt-manager05.png]]
 
+#+BEGIN_EXPORT html
+<br></br>
+<p>Set the memory and number of CPUs for the Virtual Machine</p>
+#+END_EXPORT
 
-- Set the memory and number of CPUs for the Virtual Machine
-
-#+ATTR_HTML: :align top
+#+ATTR_HTML: :style margin: 20px 20px 20px 80px
 [[https://manlug-notes.github.io/notes/libvirt/create_a_vm_virt-manager06.png]]
 
+#+BEGIN_EXPORT html
+<br></br>
+<p>Create the disk that the Virtual Machine will use(this will be put in /var/notes/lib/qemu/)</p>
+#+END_EXPORT
 
-- Create the disk that the Virtual Machine will use(this will be put in /var/notes/lib/qemu/)
-
-#+ATTR_HTML: :align top
+#+ATTR_HTML: :style margin: 20px 20px 20px 80px
 [[https://manlug-notes.github.io/notes/libvirt/create_a_vm_virt-manager07.png]]
 
+#+BEGIN_EXPORT html
+<br></br>
+<p>Select a name for the VM, and select the type of networking to use.</p>
+#+END_EXPORT
 
-- Select a name for the VM, and select the type of networking to use.
-
-#+ATTR_HTML: :align top
+#+ATTR_HTML: :style margin: 20px 20px 20px 80px
 [[https://manlug-notes.github.io/notes/libvirt/create_a_vm_virt-manager08.png]]
 
+#+BEGIN_EXPORT html
+<br></br>
+<p>On pressing the finish button a window will appear with the boot process under way.</p>
+#+END_EXPORT
 
-- On pressing the finish button a window will appear with the boot process under way.
-
-#+ATTR_HTML: :align top
+#+ATTR_HTML: :style margin: 20px 20px 20px 80px
 [[https://manlug-notes.github.io/notes/libvirt/create_a_vm_virt-manager09.png]]
 
+#+BEGIN_EXPORT html
+<br></br>
+<p style= LINE-HEIGHT:10px>If any of the settings that you made initially need to be changed or hardware added press the "i" (on some</p>
+<p style= LINE-HEIGHT:5px>distros this will be a lightbulb) button on the ribbon, and this interface allows you to alter/add hardware.</p>
+<p style= LINE-HEIGHT:5px>For some changes the VM will need to be restarted.</p>
+#+END_EXPORT
 
-- If any of the settings that you made initially need to be changed or hardware added press the "i" (on some distros this will be a lightbulb) button on the ribbon, and this interface allows you to alter/add hardware. For some changes the VM will need to be restarted. 
-
-#+ATTR_HTML: :align top
+#+ATTR_HTML: :style margin: 20px 20px 20px 80px
 [[https://manlug-notes.github.io/notes/libvirt/create_a_vm_virt-manager10.png]]
-
+#+BEGIN_EXPORT html
+<br></br>
+#+END_EXPORT
 
 [[https://manlug-notes.github.io/notes/index.html][Home]]

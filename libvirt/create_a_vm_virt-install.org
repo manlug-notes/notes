@@ -1,0 +1,84 @@
+#+OPTIONS: num:nil toc:nil html-postamble:nil timestamp:nil html-style:nil
+#+TITLE: virt-install
+
+#+BEGIN_EXPORT html
+<p style= LINE-HEIGHT:5px; >With virt-install we can provision virtual instances from the terminal. This allows</p>
+<p style= LINE-HEIGHT:5px; >headless systems to create instances, or the spinning up of environments from scripts.</p>
+#+END_EXPORT
+
+#+BEGIN_EXPORT html
+<h4>Debian 9 Install</h4>
+#+END_EXPORT 
+#+ATTR_HTML: :textarea t :width 80 :height 11
+#+BEGIN_EXAMPLE
+virt-install --connect qemu:///system \
+	--virt-type kvm \
+	--vcpus=1 \
+	--name debian9 \
+	--memory 1024 \
+	--disk /var/lib/libvirt/images/debian.qcow2 \
+	--network network:default \
+	--cdrom /var/lib/libvirt/iso/debian-9.9.0-amd64-netinst.iso \
+	--graphics vnc \
+	--os-variant auto\
+#+END_EXAMPLE
+#+BEGIN_EXPORT html
+<p style= LINE-HEIGHT:5px; >virt-type &nbsp&nbsp; - the type of hypervisor that we will use</p>
+<p style= LINE-HEIGHT:5px; >vcpus &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp; - the number of cpus to give to the instance</p>
+<p style= LINE-HEIGHT:5px; >name &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp; - the name that will apply to the VM</p>
+<p style= LINE-HEIGHT:5px; >memeory &nbsp&nbsp; - sets both max and used memory of the VM</p>
+<p style= LINE-HEIGHT:5px; >disk &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp;      - specifiy the media to use as storage for the instance</p>
+<p style= LINE-HEIGHT:5px; >network &nbsp&nbsp&nbsp; - which network the instance is use</p>
+<p style= LINE-HEIGHT:5px; >cdrom &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp; - iso or cdrom device to use for installation</p>
+<p style= LINE-HEIGHT:5px; >graphics &nbsp&nbsp&nbsp; - how the guest's graphical display will be accessed</p>
+<p style= LINE-HEIGHT:5px; >os-variant &nbsp; - optimize the instance configuration</p>
+<br></br>
+<p>To find which networks are availabe we can use virsh</p>
+#+END_EXPORT
+#+ATTR_HTML: :textarea t :width 80 :height 1
+#+BEGIN_EXAMPLE
+virsh -c qemu:///system net-list --all
+#+END_EXAMPLE
+#+BEGIN_EXPORT html
+<p>To find the os-variant we can use the osinfo-query or allow virt-install to auto detect the operating system</p>
+#+END_EXPORT
+#+ATTR_HTML: :textarea t :width 80 :height 1
+#+BEGIN_EXAMPLE
+osinfo-query os | grep debian
+#+END_EXAMPLE
+
+
+#+BEGIN_EXPORT html
+<br></br>
+<h4>A simple script to setup a fedora environment</h4>
+#+END_EXPORT
+
+#+BEGIN_EXPORT html
+<p style= LINE-HEIGHT:10px>On execution of the script a virt-viewer windown will pop up with the boot process under way</p>
+#+END_EXPORT
+#+ATTR_HTML: :textarea t :width 80
+#+BEGIN_EXAMPLE
+#!/usr/bin/bash
+
+#fedora-install.sh
+
+# this creates the image that fedora will use as storage
+qemu-img create -f qcow2 /var/lib/libvirt/images/fedora29.qcow2 20G
+
+# this will configure the instance for installation
+virt-install \
+            --virt-type kvm \
+	    --vcpus=2 \
+            --name fedora29 \
+            --memory 1024 \
+            --disk /var/lib/libvirt/images/fedora29.img \
+	    --network network=default \
+            --cdrom /var/lib/libvirt/iso/fedora29.iso \
+	    --graphic spice \
+            --os-variant fedora29 \
+#+END_EXAMPLE
+#+BEGIN_EXPORT html
+<p>spice - this will require that the virt-viewer is installed</p>
+<br></br>
+#+END_EXPORT
+[[https://manlug-notes.github.io/notes/index.html][Home]]

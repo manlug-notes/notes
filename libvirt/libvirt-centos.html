@@ -3,10 +3,10 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2019-05-28 Tue 22:14 -->
+<!-- 2019-05-29 Wed 14:23 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>&lrm;</title>
+<title>Libvert setup for CentOS7</title>
 <meta name="generator" content="Org mode" />
 <script type="text/javascript">
 /*
@@ -57,64 +57,49 @@ for the JavaScript code in this tag.
 </head>
 <body>
 <div id="content">
+<h1 class="title">Libvert setup for CentOS7</h1>
+<h4>Confirm that virulization is enabled</h4>
 
-<div id="outline-container-org4ed9fe9" class="outline-2">
-<h2 id="org4ed9fe9">Libvirt setup for CentOS7</h2>
-<div class="outline-text-2" id="text-org4ed9fe9">
-</div>
-<div id="outline-container-orgab53ecb" class="outline-3">
-<h3 id="orgab53ecb">Confirm that virulization is enabled</h3>
-<div class="outline-text-3" id="text-orgab53ecb">
-<ul class="org-ul">
-<li>check that the processor has virtualization</li>
-</ul>
+<p>Check that the processor has virtualization</p>
 <p>
 <textarea cols="80" rows="1">
 grep -E '(vmx|svm)' /proc/cpuinfo</textarea>
 </p>
+<p>vmx - intel</p>
+<p>svm - amd</p>
 
-<ul class="org-ul">
-<li>you should see something similar to below, if nothing is returned check that your cpu is capable of virtualization</li>
-</ul>
+<p>The output should be something similar to below, if nothing is returned check that your cpu is capable of virtualization</p>
 <p>
-<textarea cols="80" rows="2">
+<textarea cols="100" rows="10">
 flags           : fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc art arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc cpuid aperfmperf tsc_known_freq pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm 3dnowprefetch cpuid_fault
 epb invpcid_single pti ssbd ibrs ibpb stibp tpr_shadow vnmi flexpriority ept vpid ept_ad fsgsbase tsc_adjust bmi1 hle avx2 smep bmi2 erms invpcid rtm mpx rdseed adx smap clflushopt intel_pt xsaveopt xsavec xgetbv1 xsaves dtherm ida arat pln pts hwp hwp_notify hwp_act_window hwp_epp flush_l1d</textarea>
 </p>
 
-<ul class="org-ul">
-<li>check the kvm module is loaded</li>
-</ul>
+<p>Check the kvm module is loaded</p>
 <p>
-<textarea cols="80" rows="1">
+<textarea cols="80" rows="2">
 lsmod | grep kvm</textarea>
 </p>
 
-<ul class="org-ul">
-<li>you should see output similar to below</li>
-</ul>
+<p>The output should look like this</p>
 <p>
-<textarea cols="80" rows="3">
+<textarea cols="80" rows="4">
 kvm_intel             311296  4
 kvm                   741376  1 kvm_intel
 irqbypass              16384  4 kvm</textarea>
 </p>
 
-<ul class="org-ul">
-<li>if not loaded</li>
-</ul>
+<p>If the module isn't loaded it can be loaded with modprobe</p>
 <p>
-<textarea cols="80" rows="1">
+<textarea cols="80" rows="2">
 modprobe kvm</textarea>
 </p>
-</div>
-</div>
 
-<div id="outline-container-orga7bd2f9" class="outline-3">
-<h3 id="orga7bd2f9">Required Packages</h3>
-<div class="outline-text-3" id="text-orga7bd2f9">
+<br></br>
+<h4>Required Packages</h4>
+
 <p>
-<textarea cols="80" rows="1">
+<textarea cols="80" rows="3">
 sudo yum install qemu-kvm qemu-img libvirt virt-install libvirt-pyton virt-manager libvirt-client python-virtinst bridge-utils virt-viewer</textarea>
 </p>
 <p>
@@ -146,47 +131,33 @@ virt-viewer    - Graphical Console(optional, if using virt-manager or a VNC clie
 <p>
 virt-manager   - Graphical Management Interface(optional, but will require VMs to be managed from the cmd line if not installed)
 </p>
-</div>
-</div>
 
-<div id="outline-container-orgdae588e" class="outline-3">
-<h3 id="orgdae588e">Service Configuration</h3>
-<div class="outline-text-3" id="text-orgdae588e">
-<ul class="org-ul">
-<li>start and enable libvirtd</li>
-</ul>
+<br></br>
+<h4>Service Configuration</h4>
+<p>Start and enable the libvirtd service</p>
 <p>
-<textarea cols="80" rows="1">
+<textarea cols="80" rows="2">
 sudo systemctl enable libvirtd && systemctl start libvirtd</textarea>
 </p>
 
-<ul class="org-ul">
-<li>confirm startup and that service is enabled</li>
-</ul>
+<p>Confirm that the service has started and that the service has been enabled</p>
 <p>
-<textarea cols="80" rows="1">
+<textarea cols="80" rows="2">
 systemctl status libvirtd</textarea>
 </p>
-</div>
-</div>
 
-<div id="outline-container-org51c1153" class="outline-3">
-<h3 id="org51c1153">Allow a regular user to use libvirt</h3>
-<div class="outline-text-3" id="text-org51c1153">
-<ul class="org-ul">
-<li>add group to the libvirt group</li>
-</ul>
+<br></br>
+<h4>Allow a regular user to use libvirt</h4>
+<p>The user needs to be added to the libvirt group to be able to interact with the service</p>
+
 <p>
-<textarea cols="80" rows="1">
+<textarea cols="80" rows="2">
 sudo usermod -aG libvirt user</textarea>
 </p>
 
 <p>
 <a href="https://manlug-notes.github.io/notes/index.html">Home</a>
 </p>
-</div>
-</div>
-</div>
 </div>
 </body>
 </html>

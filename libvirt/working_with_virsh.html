@@ -3,10 +3,10 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2019-05-29 Wed 01:44 -->
+<!-- 2019-05-29 Wed 14:44 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>&lrm;</title>
+<title>Virsh</title>
 <meta name="generator" content="Org mode" />
 <script type="text/javascript">
 /*
@@ -57,82 +57,56 @@ for the JavaScript code in this tag.
 </head>
 <body>
 <div id="content">
+<h1 class="title">Virsh</h1>
+<h4>Getting an overview of the environment</h4>
 
-<div id="outline-container-org8542689" class="outline-2">
-<h2 id="org8542689">Virsh</h2>
-<div class="outline-text-2" id="text-org8542689">
-</div>
-<div id="outline-container-orgadb7aa2" class="outline-3">
-<h3 id="orgadb7aa2">Getting an overview of the environment</h3>
-<div class="outline-text-3" id="text-orgadb7aa2">
-<ul class="org-ul">
-<li>View all VMs running and shutdown</li>
-</ul>
+<p>View all VMs running and shutdown</p>
 <p>
 <textarea cols="80" rows="1">
 virsh -c qemu:///system list --all</textarea>
 </p>
 
-<ul class="org-ul">
-<li>View only the running instances</li>
-</ul>
+<p>View only the running instances</p>
 <p>
 <textarea cols="80" rows="1">
 virsh -c qemu:///system list</textarea>
 </p>
 
-<ul class="org-ul">
-<li>view all the available networks</li>
-</ul>
+<p>View all the available networks</p>
 <p>
 <textarea cols="80" rows="1">
 virsh -c qemu:///system net-list --all</textarea>
 </p>
 
-<ul class="org-ul">
-<li>view enabled networks</li>
-</ul>
+<p>View enabled networks</p>
 <p>
 <textarea cols="80" rows="1">
 virsh -c qemu:///system net-list --all</textarea>
 </p>
-</div>
-</div>
 
-<div id="outline-container-orgfbca92e" class="outline-3">
-<h3 id="orgfbca92e">Starting and Stopping Virtual Machines</h3>
-<div class="outline-text-3" id="text-orgfbca92e">
-<ul textarea="t" width="80" class="org-ul">
-<li>start a instance</li>
-</ul>
-<pre class="example">
-virsh -c qemu:///system start centos7
-</pre>
+<br></br>
+<h4>Starting and Stopping Virtual Machines</h4>
+<p>Start an instance</p>
+<p>
+<textarea cols="80" rows="1">
+virsh -c qemu:///system start centos7</textarea>
+</p>
 
-<ul class="org-ul">
-<li>stop an instance</li>
-</ul>
+<p>Stop an instance</p>
 <p>
 <textarea cols="80" rows="1">
 virsh -c qemu:///system destory centos7</textarea>
 </p>
 
-<ul class="org-ul">
-<li>suspend/pause an instance</li>
-</ul>
+<p>Suspend/Pause an instance</p>
 <p>
 <textarea cols="80" rows="1">
 virsh -c qemu:///system suspend centos7</textarea>
 </p>
-</div>
-</div>
 
-<div id="outline-container-orge5d3266" class="outline-3">
-<h3 id="orge5d3266">Adding a cpu to a Virtual Machine</h3>
-<div class="outline-text-3" id="text-orge5d3266">
-<ul class="org-ul">
-<li>View information</li>
-</ul>
+<h4>Adding a cpu to a Virtual Machine</h4>
+<p>View the current configuration of an instance</p>
+
 <p>
 <textarea cols="80" rows="1">
 virsh -c qemu:///system dominfo centos7</textarea>
@@ -155,55 +129,40 @@ Security model: none
 Security DOI:   0</textarea>
 </p>
 
-<ul class="org-ul">
-<li>Adding a cpu to a VM(if running the VM will need to be restarted for the change to take effect)</li>
-</ul>
+<p>Adding a cpu to a VM</p>
 <p>
 <textarea cols="80" rows="1">
 virsh -c qemu:///system setvcpus --count 2 --config --domain centos7</textarea>
 </p>
 
-<ul class="org-ul">
-<li>Confirm the increase</li>
-</ul>
+<p>Confirm the increase</p>
 <p>
 <textarea cols="80" rows="1">
 virsh -c qemu:///system dominfo centos7</textarea>
 </p>
-</div>
-</div>
 
 
-<div id="outline-container-org69cdd47" class="outline-3">
-<h3 id="org69cdd47">Change the Memory of a Virtual Machine</h3>
-<div class="outline-text-3" id="text-org69cdd47">
-<ul class="org-ul">
-<li>Change the memory of a running instance</li>
-</ul>
+<br></br>
+<h4>Change the Memory of a Virtual Machine</h4>
+<p>Change the memory of a running instance, it can only set to the max memory limit</p>
 <p>
-<textarea cols="80" rows="1">
-virsh -c qemu:///system setmem --domain centos7 --size 4G</textarea>
+<textarea cols="110" rows="2">
+virsh -c qemu:///system setmem --domain centos7 --size 4G --live   # will take affect on an active instance
+virsh -c qemu:///system setmem --domain centos7 --size 4G --config # will take affect after next full shutdown</textarea>
 </p>
-<ul class="org-ul">
-<li>You are only able to set memory up to the max memory limit</li>
 
-<li>Increase the Max memory limit</li>
-</ul>
+<p>Increase the Max memory limit</p>
 <p>
 <textarea cols="80" rows="2">
 virsh -c qemu:///system setmaxmem --domain centos7 --size 8G --config
 virsh -c qemu:///system setmem --domain centos7 --size 8G --config</textarea>
 </p>
-<p>
-these commands can be run against an active instance, but will not take effect until a full shutdown has been performed
-</p>
+<p>These commands can be run against an active instance, but will not take effect until a full shutdown has been performed</p>
+<br></br>
 
 <p>
 <a href="https://manlug-notes.github.io/notes/index.html">Home</a>
 </p>
-</div>
-</div>
-</div>
 </div>
 </body>
 </html>

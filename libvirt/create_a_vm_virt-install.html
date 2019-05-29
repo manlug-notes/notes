@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>virt-install</title>
+<meta name="generator" content="Org mode" />
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2019 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">virt-install</h1>
+<p style= LINE-HEIGHT:5px; >With virt-install we can provision virtual instances from the terminal. This allows</p>
+<p style= LINE-HEIGHT:5px; >for headless systems to create instances, or the spinning up of environments from scripts.</p>
+
+<h4>Debian 9 Install</h4>
+<p>
+<textarea cols="80" rows="11">
+virt-install --connect qemu:///system \
+	--virt-type kvm \
+	--vcpus=1 \
+	--name debian9 \
+	--memory 1024 \
+	--disk /var/lib/libvirt/images/debian.qcow2 \
+	--network network:default \
+	--cdrom /var/lib/libvirt/iso/debian-9.9.0-amd64-netinst.iso \
+	--graphics vnc \
+	--os-variant auto\</textarea>
+</p>
+<p style= LINE-HEIGHT:5px; >virt-type &nbsp&nbsp; - the type of hypervisor that we will use</p>
+<p style= LINE-HEIGHT:5px; >vcpus &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp; - the number of cpus to give to the instance</p>
+<p style= LINE-HEIGHT:5px; >name &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp; - the name that will apply to the VM</p>
+<p style= LINE-HEIGHT:5px; >memeory &nbsp&nbsp; - sets both max and used memory of the VM</p>
+<p style= LINE-HEIGHT:5px; >disk &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp;      - specifiy the media to use as storage for the instance</p>
+<p style= LINE-HEIGHT:5px; >network &nbsp&nbsp&nbsp; - which network the instance is use</p>
+<p style= LINE-HEIGHT:5px; >cdrom &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp; - iso or cdrom device to use for installation</p>
+<p style= LINE-HEIGHT:5px; >graphics &nbsp&nbsp&nbsp; - how the guest's graphical display will be accessed</p>
+<p style= LINE-HEIGHT:5px; >os-variant &nbsp; - optimize the instance configuration</p>
+<br></br>
+<p>To find which networks are availabe we can use virsh</p>
+<p>
+<textarea cols="80" rows="1">
+virsh -c qemu:///system net-list --all</textarea>
+</p>
+<p>To find the os-variant we can use the osinfo-query or allow virt-install to auto detect the operating system</p>
+<p>
+<textarea cols="80" rows="1">
+osinfo-query os | grep debian</textarea>
+</p>
+
+
+<br></br>
+<h4>A simple script to setup a fedora environment</h4>
+
+<p style= LINE-HEIGHT:10px>On execution of the script a virt-viewer windown will pop up with the boot process under way</p>
+<p>
+<textarea cols="80" rows="18">
+#!/usr/bin/bash
+
+#fedora-install.sh
+
+# this creates the image that fedora will use as storage
+qemu-img create -f qcow2 /var/lib/libvirt/images/fedora29.qcow2 20G
+
+# this will configure the instance for installation
+virt-install \
+            --virt-type kvm \
+	    --vcpus=2 \
+            --name fedora29 \
+            --memory 1024 \
+            --disk /var/lib/libvirt/images/fedora29.img \
+	    --network network=default \
+            --cdrom /var/lib/libvirt/iso/fedora29.iso \
+	    --graphic spice \
+            --os-variant fedora29 \</textarea>
+</p>
+<p>spice - this will require that the virt-viewer is installed</p>
+<br></br>
+<p>
+<a href="https://manlug-notes.github.io/notes/index.html">Home</a>
+</p>
+</div>
+</body>
+</html>

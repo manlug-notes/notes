@@ -1,7 +1,8 @@
-#+OPTIONS: num:nil toc:nil html-postamble:nil timestamp:nil
+#+OPTIONS: num:nil toc:nil html-postamble:nil timestamp:nil html-style:nil
+#+TITLE: Libvirt
 
 - [[https://manlug-notes.github.io/notes/libvirt/libvirt-centos.html][Libvirt - CentOS Configuration]]
 - [[https://manlug-notes.github.io/notes/libvirt/libvirt-ubuntu.html][Libvirt - Ubuntu Configuration]]
 - [[https://manlug-notes.github.io/notes/libvirt/create_a_vm_virt-manager.html][Create a Virtual Machine with Virt-Manager]]
+- [[https://manlug-notes.github.io/notes/libvirt/creae_a_vm_virt-install.org][Create a Virtual Machine with virt-install]]
 - [[https://manlug-notes.github.io/notes/libvirt/working_with_virsh.html][Working with virsh]]
-- [[https://manlug-notes.github.io/notes/libvirt/libvirt_and_networking.html][Libvirt and Networking]]
