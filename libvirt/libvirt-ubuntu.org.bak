@@ -2,7 +2,7 @@
 #+TITLE: Libvirt setup for Ubuntu 18.04LTS
    
 #+BEGIN_EXPORT html
-<h4>Confirm that virtualization is enabled</h4>
+<h4>Confirm that virulization is enabled</h4>
 #+END_EXPORT
 #+ATTR_HTML: :textarea t :width 80
 #+BEGIN_EXAMPLE
