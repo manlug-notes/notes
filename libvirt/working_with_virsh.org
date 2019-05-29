@@ -93,6 +93,7 @@ Security DOI:   0
 #+END_EXAMPLE
 
 #+BEGIN_EXPORT html
+<br></br>
 <p>Adding a cpu to a VM</p>
 #+END_EXPORT
 #+ATTR_HTML: :textarea t :width 80
