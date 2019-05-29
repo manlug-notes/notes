@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2019-05-29 Wed 16:18 -->
+<!-- 2019-05-29 Wed 16:47 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Virsh</title>
@@ -104,6 +104,7 @@ virsh -c qemu:///system destory centos7</textarea>
 virsh -c qemu:///system suspend centos7</textarea>
 </p>
 
+<br></br>
 <h4>Adding a cpu to a Virtual Machine</h4>
 <p>View the current configuration of an instance</p>
 
@@ -129,8 +130,7 @@ Security model: none
 Security DOI:   0</textarea>
 </p>
 
-<br></br>
-<p>Adding a cpu to a VM</p>
+<p>Change the count to the required cpu number</p>
 <p>
 <textarea cols="80" rows="1">
 virsh -c qemu:///system setvcpus --count 2 --config --domain centos7</textarea>

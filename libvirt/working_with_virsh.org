@@ -66,6 +66,7 @@ virsh -c qemu:///system suspend centos7
 #+END_EXAMPLE
 
 #+BEGIN_EXPORT html
+<br></br>
 <h4>Adding a cpu to a Virtual Machine</h4>
 <p>View the current configuration of an instance</p>
 #+END_EXPORT
@@ -93,8 +94,7 @@ Security DOI:   0
 #+END_EXAMPLE
 
 #+BEGIN_EXPORT html
-<br></br>
-<p>Adding a cpu to a VM</p>
+<p>Change the count to the required cpu number</p>
 #+END_EXPORT
 #+ATTR_HTML: :textarea t :width 80
 #+BEGIN_EXAMPLE

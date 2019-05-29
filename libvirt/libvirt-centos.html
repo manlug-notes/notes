@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2019-05-29 Wed 14:23 -->
+<!-- 2019-05-29 Wed 16:32 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Libvert setup for CentOS7</title>
@@ -65,8 +65,8 @@ for the JavaScript code in this tag.
 <textarea cols="80" rows="1">
 grep -E '(vmx|svm)' /proc/cpuinfo</textarea>
 </p>
-<p>vmx - intel</p>
-<p>svm - amd</p>
+<p style= LINE-HEIGHT:5px>vmx - intel</p>
+<p style= LINE-HEIGHT:5px>svm - amd</p>
 
 <p>The output should be something similar to below, if nothing is returned check that your cpu is capable of virtualization</p>
 <p>
@@ -102,35 +102,13 @@ modprobe kvm</textarea>
 <textarea cols="80" rows="3">
 sudo yum install qemu-kvm qemu-img libvirt virt-install libvirt-pyton virt-manager libvirt-client python-virtinst bridge-utils virt-viewer</textarea>
 </p>
-<p>
-qemu-kvm       - QEMU emulator
-</p>
-
-<p>
-qemu-img       - QEMU disk image manager
-</p>
-
-<p>
-virt-install   - Command line tool to create virtual machines.
-</p>
-
-<p>
-libvirt        - Provides libvirtd daemon that manages virtual machines and controls
-                 hypervisor.
-</p>
-
-<p>
-libvirt-client - Provides client-side API for accessing servers and also provides the 
-                 virsh utility which provides command line tool to manage virtual machines.
-</p>
-
-<p>
-virt-viewer    - Graphical Console(optional, if using virt-manager or a VNC client)
-</p>
-
-<p>
-virt-manager   - Graphical Management Interface(optional, but will require VMs to be managed from the cmd line if not installed)
-</p>
+<p style= LINE-HEIGHT:5px>qemu-kvm &nbsp&nbsp&nbsp - QEMU emulator</p>
+<p style= LINE-HEIGHT:5px>qemu-img &nbsp&nbsp&nbsp - QEMU disk image manager</p>
+<p style= LINE-HEIGHT:5px>virt-install &nbsp&nbsp&nbsp - Command line tool to create virtual machines.</p>
+<p style= LINE-HEIGHT:5px>libvirt &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp - Provides libvirtd daemon that manages virtual machines and controls hypervisor.</p>
+<p style= LINE-HEIGHT:5px>libvirt-client &nbsp&nbsp- Provides client-side API for accessing servers and also provides the virsh utility which provides command line tool to manage virtual machines.</p>
+<p style= LINE-HEIGHT:5px>virt-viewer &nbsp&nbsp&nbsp  - Graphical Console(optional, if using virt-manager or a VNC client)</p>
+<p style= LINE-HEIGHT:5px>virt-manager &nbsp&nbsp - Graphical Management Interface(optional, but will require VMs to be managed from the cmd line if not installed)</p>
 
 <br></br>
 <h4>Service Configuration</h4>

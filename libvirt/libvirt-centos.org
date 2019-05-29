@@ -14,8 +14,8 @@
 grep -E '(vmx|svm)' /proc/cpuinfo
 #+END_EXAMPLE
 #+BEGIN_EXPORT html
-<p>vmx - intel</p>
-<p>svm - amd</p>
+<p style= LINE-HEIGHT:5px>vmx - intel</p>
+<p style= LINE-HEIGHT:5px>svm - amd</p>
 #+END_EXPORT
 
 #+BEGIN_EXPORT html
@@ -62,21 +62,15 @@ modprobe kvm
 #+BEGIN_EXAMPLE
 sudo yum install qemu-kvm qemu-img libvirt virt-install libvirt-pyton virt-manager libvirt-client python-virtinst bridge-utils virt-viewer
 #+END_EXAMPLE
-qemu-kvm       - QEMU emulator
-
-qemu-img       - QEMU disk image manager
-
-virt-install   - Command line tool to create virtual machines.
-
-libvirt        - Provides libvirtd daemon that manages virtual machines and controls
-                 hypervisor.
-
-libvirt-client - Provides client-side API for accessing servers and also provides the 
-                 virsh utility which provides command line tool to manage virtual machines.
-
-virt-viewer    - Graphical Console(optional, if using virt-manager or a VNC client)
-
-virt-manager   - Graphical Management Interface(optional, but will require VMs to be managed from the cmd line if not installed)
+#+BEGIN_EXPORT html
+<p style= LINE-HEIGHT:5px>qemu-kvm &nbsp&nbsp&nbsp - QEMU emulator</p>
+<p style= LINE-HEIGHT:5px>qemu-img &nbsp&nbsp&nbsp - QEMU disk image manager</p>
+<p style= LINE-HEIGHT:5px>virt-install &nbsp&nbsp&nbsp - Command line tool to create virtual machines.</p>
+<p style= LINE-HEIGHT:5px>libvirt &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp - Provides libvirtd daemon that manages virtual machines and controls hypervisor.</p>
+<p style= LINE-HEIGHT:5px>libvirt-client &nbsp&nbsp- Provides client-side API for accessing servers and also provides the virsh utility which provides command line tool to manage virtual machines.</p>
+<p style= LINE-HEIGHT:5px>virt-viewer &nbsp&nbsp&nbsp  - Graphical Console(optional, if using virt-manager or a VNC client)</p>
+<p style= LINE-HEIGHT:5px>virt-manager &nbsp&nbsp - Graphical Management Interface(optional, but will require VMs to be managed from the cmd line if not installed)</p>
+#+END_EXPORT
 
 #+BEGIN_EXPORT html
 <br></br>
