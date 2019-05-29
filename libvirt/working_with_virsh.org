@@ -1,3 +1,93 @@
 #+OPTIONS: num:nil toc:nil html-postamble:nil html-style:nil
 
+* Virsh
+  
+
+** Getting an overview of the environment
+   
+- View all VMs running and shutdown
+#+BEGIN_EXAMPLE
+virsh -c qemu:///system list --all
+#+END_EXAMPLE
+
+- View only the running instances
+#+BEGIN_EXAMPLE
+virsh -c qemu:///system list
+#+END_EXAMPLE
+
+- view all the available networks
+#+BEGIN_EXAMPLE
+virsh -c qemu:///system net-list --all
+#+END_EXAMPLE
+
+- view enabled networks
+#+BEGIN_EXAMPLE
+virsh -c qemu:///system net-list --all
+#+END_EXAMPLE
+
+** Starting and Stopping Virtual Machines
+- start a instance
+#+BEGIN_EXAMPLE
+virsh -c qemu:///system start centos7
+#+END_EXAMPLE
+
+- stop an instance
+#+BEGIN_EXAMPLE
+virsh -c qemu:///system destory centos7
+#+END_EXAMPLE
+
+- suspend/pause an instance
+#+BEGIN_EXAMPLE
+virsh -c qemu:///system suspend centos7
+#+END_EXAMPLE
+
+** Adding a cpu to a Virtual Machine
+
+- View information
+#+BEGIN_EXAMPLE
+virsh -c qemu:///system dominfo centos7
+#+END_EXAMPLE
+
+#+BEGIN_EXAMPLE
+Id:             -
+Name:           centos7
+UUID:           092efc5e-a3b0-4c15-a5cd-9a1909ea340f
+OS Type:        hvm
+State:          shut off
+CPU(s):         1
+Max memory:     8388608 KiB
+Used memory:    8388608 KiB
+Persistent:     yes
+Autostart:      disable
+Managed save:   no
+Security model: none
+Security DOI:   0
+#+END_EXAMPLE
+
+- Adding a cpu to a VM(if running the VM will need to be restarted for the change to take effect)
+#+BEGIN_EXAMPLE
+virsh -c qemu:///system setvcpus --count 2 --config --domain centos7
+#+END_EXAMPLE
+
+- Confirm the increase
+#+BEGIN_EXAMPLE
+virsh -c qemu:///system dominfo centos7
+#+END_EXAMPLE
+
+
+** Change the Memory of a Virtual Machine
+
+- Change the memory of a running instance
+#+BEGIN_EXAMPLE
+virsh -c qemu:///system setmem --domain centos7 --size 4G
+#+END_EXAMPLE
+- You are only able to set memory up to the max memory limit
+
+- Increase the Max memory limit
+#+BEGIN_EXAMPLE
+virsh -c qemu:///system setmaxmem --domain centos7 --size 8G --config
+virsh -c qemu:///system setmem --domain centos7 --size 8G --config
+#+END_EXAMPLE
+these commands can be run against an active instance, but will not take effect until a full shutdown has been performed
+
 [[https://manlug-notes.github.io/notes/index.html][Home]]
