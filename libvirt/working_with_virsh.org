@@ -6,37 +6,44 @@
 ** Getting an overview of the environment
    
 - View all VMs running and shutdown
+#+ATTR_HTML: :textarea t :width 80
 #+BEGIN_EXAMPLE
 virsh -c qemu:///system list --all
 #+END_EXAMPLE
 
 - View only the running instances
+#+ATTR_HTML: :textarea t :width 80
 #+BEGIN_EXAMPLE
 virsh -c qemu:///system list
 #+END_EXAMPLE
 
 - view all the available networks
+#+ATTR_HTML: :textarea t :width 80
 #+BEGIN_EXAMPLE
 virsh -c qemu:///system net-list --all
 #+END_EXAMPLE
 
 - view enabled networks
+#+ATTR_HTML: :textarea t :width 80
 #+BEGIN_EXAMPLE
 virsh -c qemu:///system net-list --all
 #+END_EXAMPLE
 
 ** Starting and Stopping Virtual Machines
+#+ATTR_HTML: :textarea t :width 80
 - start a instance
 #+BEGIN_EXAMPLE
 virsh -c qemu:///system start centos7
 #+END_EXAMPLE
 
 - stop an instance
+#+ATTR_HTML: :textarea t :width 80
 #+BEGIN_EXAMPLE
 virsh -c qemu:///system destory centos7
 #+END_EXAMPLE
 
 - suspend/pause an instance
+#+ATTR_HTML: :textarea t :width 80
 #+BEGIN_EXAMPLE
 virsh -c qemu:///system suspend centos7
 #+END_EXAMPLE
@@ -44,10 +51,12 @@ virsh -c qemu:///system suspend centos7
 ** Adding a cpu to a Virtual Machine
 
 - View information
+#+ATTR_HTML: :textarea t :width 80
 #+BEGIN_EXAMPLE
 virsh -c qemu:///system dominfo centos7
 #+END_EXAMPLE
 
+#+ATTR_HTML: :textarea t :width 80
 #+BEGIN_EXAMPLE
 Id:             -
 Name:           centos7
@@ -65,11 +74,13 @@ Security DOI:   0
 #+END_EXAMPLE
 
 - Adding a cpu to a VM(if running the VM will need to be restarted for the change to take effect)
+#+ATTR_HTML: :textarea t :width 80
 #+BEGIN_EXAMPLE
 virsh -c qemu:///system setvcpus --count 2 --config --domain centos7
 #+END_EXAMPLE
 
 - Confirm the increase
+#+ATTR_HTML: :textarea t :width 80
 #+BEGIN_EXAMPLE
 virsh -c qemu:///system dominfo centos7
 #+END_EXAMPLE
@@ -78,12 +89,14 @@ virsh -c qemu:///system dominfo centos7
 ** Change the Memory of a Virtual Machine
 
 - Change the memory of a running instance
+#+ATTR_HTML: :textarea t :width 80
 #+BEGIN_EXAMPLE
 virsh -c qemu:///system setmem --domain centos7 --size 4G
 #+END_EXAMPLE
 - You are only able to set memory up to the max memory limit
 
 - Increase the Max memory limit
+#+ATTR_HTML: :textarea t :width 80
 #+BEGIN_EXAMPLE
 virsh -c qemu:///system setmaxmem --domain centos7 --size 8G --config
 virsh -c qemu:///system setmem --domain centos7 --size 8G --config
