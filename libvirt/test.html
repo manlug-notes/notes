@@ -1,0 +1,113 @@
+<html>
+<body>
+<div id="content">
+<h1 class="title">Virsh</h1>
+<h4>Getting an overview of the environment</h4>
+
+<p>View all VMs running and shutdown</p>
+<p>
+<textarea cols="80" rows="1">
+virsh -c qemu:///system list --all</textarea>
+</p>
+
+<p>View only the running instances</p>
+<p>
+<textarea cols="80" rows="1">
+virsh -c qemu:///system list</textarea>
+</p>
+
+<p>View all the available networks</p>
+<p>
+<textarea cols="80" rows="1">
+virsh -c qemu:///system net-list --all</textarea>
+</p>
+
+<p>View enabled networks</p>
+<p>
+<textarea cols="80" rows="1">
+virsh -c qemu:///system net-list --all</textarea>
+</p>
+
+<br></br>
+<h4>Starting and Stopping Virtual Machines</h4>
+<p>Start an instance</p>
+<p>
+<textarea cols="80" rows="1">
+virsh -c qemu:///system start centos7</textarea>
+</p>
+
+<p>Stop an instance</p>
+<p>
+<textarea cols="80" rows="1">
+virsh -c qemu:///system destory centos7</textarea>
+</p>
+
+<p>Suspend/Pause an instance</p>
+<p>
+<textarea cols="80" rows="1">
+virsh -c qemu:///system suspend centos7</textarea>
+</p>
+
+<br></br>
+<h4>Adding a cpu to a Virtual Machine</h4>
+<p>View the current configuration of an instance</p>
+
+<p>
+<textarea cols="80" rows="1">
+virsh -c qemu:///system dominfo centos7</textarea>
+</p>
+
+<p>
+<textarea cols="80" rows="13">
+Id:             -
+Name:           centos7
+UUID:           092efc5e-a3b0-4c15-a5cd-9a1909ea340f
+OS Type:        hvm
+State:          shut off
+CPU(s):         1
+Max memory:     8388608 KiB
+Used memory:    8388608 KiB
+Persistent:     yes
+Autostart:      disable
+Managed save:   no
+Security model: none
+Security DOI:   0</textarea>
+</p>
+
+<p>Change the count to the required cpu number</p>
+<p>
+<textarea cols="80" rows="1">
+virsh -c qemu:///system setvcpus --count 2 --config --domain centos7</textarea>
+</p>
+
+<p>Confirm the increase</p>
+<p>
+<textarea cols="80" rows="1">
+virsh -c qemu:///system dominfo centos7</textarea>
+</p>
+
+
+<br></br>
+<h4>Change the Memory of a Virtual Machine</h4>
+<p>Change the memory of a running instance, it can only set to the max memory limit</p>
+<p>
+<textarea cols="110" rows="2">
+virsh -c qemu:///system setmem --domain centos7 --size 4G --live   # will take affect on an active instance
+virsh -c qemu:///system setmem --domain centos7 --size 4G --config # will take affect after next full shutdown</textarea>
+</p>
+
+<p>Increase the Max memory limit</p>
+<p>
+<textarea cols="80" rows="2">
+virsh -c qemu:///system setmaxmem --domain centos7 --size 8G --config
+virsh -c qemu:///system setmem --domain centos7 --size 8G --config</textarea>
+</p>
+<p>These commands can be run against an active instance, but will not take effect until a full shutdown has been performed</p>
+<br></br>
+
+<p>
+<a href="https://manlug-notes.github.io/notes/index.html">Home</a>
+</p>
+</div>
+</body>
+</html>
