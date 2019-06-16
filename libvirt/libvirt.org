@@ -6,3 +6,4 @@
 - [[https://manlug-notes.github.io/notes/libvirt/create_a_vm_virt-manager.html][Create a Virtual Machine with Virt-Manager]]
 - [[https://manlug-notes.github.io/notes/libvirt/create_a_vm_virt-install.html][Create a Virtual Machine with virt-install]]
 - [[https://manlug-notes.github.io/notes/libvirt/working_with_virsh.html][Working with virsh]]
+- [[https://manlug-notes.github.io/notes/libvirt/test.html][test]]
